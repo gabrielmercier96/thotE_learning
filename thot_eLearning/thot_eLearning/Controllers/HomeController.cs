@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using thot_eLearning.Models;
 
 namespace thot_eLearning.Controllers
 {
@@ -10,11 +11,15 @@ namespace thot_eLearning.Controllers
     {
         public ActionResult Admin()
         {
+            DataClassAdminDataContext bd = new DataClassAdminDataContext();
 
-            ViewBag.title = "demo About";
-            ViewBag.message = "je suis le message que le controleur voulais vous transmettre dans About";
+            var cours = from c in bd.Cours
+                        select c;
 
-            return View();
+            ViewBag.title = "Admin";
+            ViewBag.message = "Voici la liste des cours";
+
+            return View(cours);
         }
 
         

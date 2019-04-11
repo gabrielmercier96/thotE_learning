@@ -7,8 +7,10 @@ namespace thot_eLearning.Models
 {
     public class Cours
     {
+
         public string Nom { get; set; }
         public string Description { get; set; }
         public string Prerequis { get; set; }
+        public string NbModules { get; set; }
     }
 }

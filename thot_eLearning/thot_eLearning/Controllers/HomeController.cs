@@ -9,48 +9,73 @@ namespace thot_eLearning.Controllers
 {
     public class HomeController : Controller
     {
+        private DataClassAdminDataContext context;
+        /// <summary>
+        /// The HomeController() function is used to create a new instance of the Database
+        /// context variable is a simple access to its data.
+        /// </summary>
+        public HomeController()
+        {
+            context = new DataClassAdminDataContext();
+        }
+
+        /// <summary>
+        /// Main page. You can see all the classes listed in in order in which they were inserted into the Database
+        /// Many more options such as editing, updating, deleting and adding.
+        /// </summary>
+        /// <returns> The return simply returns a list of all the classes</returns>
         public ActionResult Admin()
         {
-            DataClassAdminDataContext bd = new DataClassAdminDataContext();
+            IList<Cours> uneListe = new List<Cours>();
 
-            var cours = from c in bd.Cours
+            var query = from c in context.Cours
                         select c;
-
-            
-
-
-            ViewBag.title = "Admin";
-            ViewBag.message = "Voici la liste des cours";
-
-
-            return View(cours);
+            var publish = query.ToList();
+            foreach(var data in publish)
+            {
+                uneListe.Add(new Cours()
+                {
+                    Nom = data.Nom,
+                    Description = data.Description,
+                    Prerequis = data.Prerequis
+                });
+            }
+            return View(uneListe);
 
         }
-        [HttpPost]
-        public ActionResult Admin(string Nom, string Description, string Prerequis)
+        /// <summary>
+        /// Initialise the Insert() function
+        /// It will simple insert into the context variable which we created earlier.
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Insert()
         {
-            DataClassAdminDataContext bd = new DataClassAdminDataContext();
-            var cmd = Request["cmd"].ToString();
-            if (cmd == "1")
-            {
+            Cours model = new Cours();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Insert(Cours model)
+        {
+
                 Cour insertion = new Cour
                 {
-                    Nom = Request["nom"].ToString(),
-                    Description = Request["description"].ToString(),
-                    Prerequis = Request["prerequis"].ToString()
+                    Nom = model.Nom,
+                    Description = model.Description,
+                    Prerequis = model.Prerequis
                 };
-                bd.Cours.InsertOnSubmit(insertion);
+                context.Cours.InsertOnSubmit(insertion);
                 try
                 {
-                    bd.SubmitChanges();
+                    context.SubmitChanges();
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
-                    bd.SubmitChanges();
+                    context.SubmitChanges();
                 }
-            }
-            return View();
+            
+            return View(model);
         }
        
         

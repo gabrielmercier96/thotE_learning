@@ -182,6 +182,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Insert.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup />

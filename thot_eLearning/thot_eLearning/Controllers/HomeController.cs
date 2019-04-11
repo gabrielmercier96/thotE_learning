@@ -8,23 +8,15 @@ namespace thot_eLearning.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Admin()
         {
+
+            ViewBag.title = "demo About";
+            ViewBag.message = "je suis le message que le controleur voulais vous transmettre dans About";
+
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }

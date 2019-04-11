@@ -8,6 +8,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.title</title>
+
+    
 </head>
 <body>
     <div>
@@ -17,7 +19,19 @@
             {
                 <li>@cours.Nom</li>
             }
-</ul>
-        </div>
-    </body>
+        </ul>
+        <!--Nom-->
+        <input type="text" id="nom" />
+
+        <!--Description-->
+        <input type="text" id="description" />
+
+        <!--Prerequis-->
+        <input type="text" id="prerequis" />
+
+        <!--Insertion on click-->
+        <input type="button" onclick="insert()" />
+    </div>
+    <script src="~/Scripts/ModifDataBase.js"></script>
+</body>
 </html>

@@ -88,6 +88,8 @@ namespace thot_eLearning
 		
 		private string _Prerequis;
 		
+		private string _NbModules;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -100,6 +102,8 @@ namespace thot_eLearning
     partial void OnDescriptionChanged();
     partial void OnPrerequisChanging(string value);
     partial void OnPrerequisChanged();
+    partial void OnNbModulesChanging(string value);
+    partial void OnNbModulesChanged();
     #endregion
 		
 		public Cour()
@@ -147,7 +151,7 @@ namespace thot_eLearning
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(200)")]
 		public string Description
 		{
 			get
@@ -183,6 +187,26 @@ namespace thot_eLearning
 					this._Prerequis = value;
 					this.SendPropertyChanged("Prerequis");
 					this.OnPrerequisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NbModules", DbType="VarChar(50)")]
+		public string NbModules
+		{
+			get
+			{
+				return this._NbModules;
+			}
+			set
+			{
+				if ((this._NbModules != value))
+				{
+					this.OnNbModulesChanging(value);
+					this.SendPropertyChanging();
+					this._NbModules = value;
+					this.SendPropertyChanged("NbModules");
+					this.OnNbModulesChanged();
 				}
 			}
 		}

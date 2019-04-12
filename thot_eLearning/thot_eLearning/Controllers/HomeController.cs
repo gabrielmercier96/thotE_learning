@@ -14,8 +14,11 @@ namespace thot_eLearning.Controllers
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         public ActionResult About()
 =======
+=======
+>>>>>>> parent of 3125e6f... Admin v.3
         /// <summary>
         /// Main page. You can see all the classes listed in in order in which they were inserted into the Database
         /// Many more options such as editing, updating, deleting and adding.
@@ -89,6 +92,9 @@ namespace thot_eLearning.Controllers
         }
        
         
+<<<<<<< HEAD
+>>>>>>> parent of 3125e6f... Admin v.3
+=======
 >>>>>>> parent of 3125e6f... Admin v.3
     }
 }

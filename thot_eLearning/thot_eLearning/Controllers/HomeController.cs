@@ -13,27 +13,7 @@ namespace thot_eLearning.Controllers
             return View();
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        public ActionResult About()
-=======
-=======
->>>>>>> parent of 3125e6f... Admin v.3
-=======
->>>>>>> parent of 3125e6f... Admin v.3
-=======
->>>>>>> parent of 3125e6f... Admin v.3
-=======
->>>>>>> parent of 3125e6f... Admin v.3
-=======
->>>>>>> parent of 3125e6f... Admin v.3
-=======
->>>>>>> parent of 3125e6f... Admin v.3
+
         /// <summary>
         /// Main page. You can see all the classes listed in in order in which they were inserted into the Database
         /// Many more options such as editing, updating, deleting and adding.
@@ -45,8 +25,8 @@ namespace thot_eLearning.Controllers
 
             var query = from c in context.Cours
                         select c;
-            var publish = query.ToList();
-            foreach(var data in publish)
+            var pub = query.ToList();
+            foreach(var data in pub)
             {
                 uneListe.Add(new Cours()
                 {

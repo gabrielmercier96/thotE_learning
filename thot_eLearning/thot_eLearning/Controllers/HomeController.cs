@@ -15,8 +15,11 @@ namespace thot_eLearning.Controllers
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public ActionResult About()
 =======
+=======
+>>>>>>> parent of 3125e6f... Admin v.3
 =======
 >>>>>>> parent of 3125e6f... Admin v.3
         /// <summary>
@@ -93,6 +96,9 @@ namespace thot_eLearning.Controllers
        
         
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 3125e6f... Admin v.3
+=======
 >>>>>>> parent of 3125e6f... Admin v.3
 =======
 >>>>>>> parent of 3125e6f... Admin v.3

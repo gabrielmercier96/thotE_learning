@@ -119,6 +119,12 @@ namespace thot_eLearning.Controllers
     
         }
 
+        /// <summary>
+        /// Update function
+        /// Will simple update anything as long as the name stays the same.
+        /// </summary>
+        /// <param name="NomCours"></param>
+        /// <returns></returns>
         public ActionResult Update(String NomCours)
         {
             Cours model = context.Cours.Where(x => x.Nom == NomCours).Select(x =>
@@ -142,6 +148,7 @@ namespace thot_eLearning.Controllers
                 cour.Nom = model.Nom;
                 cour.Description = model.Description;
                 cour.Prerequis = model.Prerequis;
+                cour.NbModules = model.NbModules;
                 context.SubmitChanges();
                 return RedirectToAction("Admin");
             }

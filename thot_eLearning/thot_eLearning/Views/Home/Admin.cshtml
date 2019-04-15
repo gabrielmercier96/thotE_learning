@@ -15,7 +15,8 @@
 <body>
     <div class="container">
         <p>
-            @Html.ActionLink("Create New", "Insert")
+            <button onclick="location.href='/Home/Insert'" class="btn btn-outline-success">Create</button>
+
         </p>
     <table class="table">
         <tr>
@@ -52,8 +53,9 @@
 
                 <!--Buttons that Edits and Delete-->
                 <td>
-                    @Html.ActionLink("Update", "Update", new { Nom = item.Nom }) |
-                    @Html.ActionLink("Delete", "Delete", new { Nom = item.Nom })
+                    <button onclick="location.href='/Home/Update?Nom=@item.Nom'" class="btn btn-outline-primary">Update</button>
+                    <button onclick="location.href='/Home/Delete?Nom=@item.Nom'" class="btn btn-outline-danger">Delete</button>
+                    
                 </td>
             </tr>
         }

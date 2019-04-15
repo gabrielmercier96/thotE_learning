@@ -8,14 +8,16 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Admin</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width" />
+	<title>Admin</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="~/Content/admin.css"/>
 </head>
 <body>
     <div class="container">
         <p>
-            <button onclick="location.href='/Home/Insert'" class="btn btn-outline-success">Create</button>
+            <button onclick="location.href='/Home/Insert'" class="btn btn-outline-success"><i class="far fa-plus-square"></i> Create</button>
 
         </p>
     <table class="table">
@@ -53,8 +55,8 @@
 
                 <!--Buttons that Edits and Delete-->
                 <td>
-                    <button onclick="location.href='/Home/Update?Nom=@item.Nom'" class="btn btn-outline-primary">Update</button>
-                    <button onclick="location.href='/Home/Delete?Nom=@item.Nom'" class="btn btn-outline-danger">Delete</button>
+                    <button onclick="location.href='/Home/Update?Nom=@item.Nom'" class="btn btn-outline-primary"><i class="fas fa-pen"></i> Update</button>
+                    <button onclick="location.href='/Home/Delete?Nom=@item.Nom'" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i> Delete</button>
                     
                 </td>
             </tr>

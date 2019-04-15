@@ -10,11 +10,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Insert")
-    </p>
+    <div class="container">
+        <p>
+            @Html.ActionLink("Create New", "Insert")
+        </p>
     <table class="table">
         <tr>
             <th>
@@ -31,30 +33,32 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prerequis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NbModules)
-            </td>
 
-            <!--Buttons that Edits and Delete-->
-            <td>
-                @Html.ActionLink("Update", "Update", new { Nom = item.Nom }) |
-                @Html.ActionLink("Delete", "Delete", new { Nom = item.Nom })
-            </td>
-        </tr>
-    }
-    
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prerequis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NbModules)
+                </td>
+
+                <!--Buttons that Edits and Delete-->
+                <td>
+                    @Html.ActionLink("Update", "Update", new { Nom = item.Nom }) |
+                    @Html.ActionLink("Delete", "Delete", new { Nom = item.Nom })
+                </td>
+            </tr>
+        }
+
     </table>
+    </div>
 </body>
 </html>

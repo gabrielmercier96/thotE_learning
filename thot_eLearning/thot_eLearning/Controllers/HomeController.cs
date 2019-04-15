@@ -32,8 +32,8 @@ namespace thot_eLearning.Controllers
 
             var query = from c in context.Cours
                         select c;
-            var publish = query.ToList();
-            foreach(var data in publish)
+            var querryRez = query.ToList();
+            foreach(var data in querryRez)
             {
                 uneListe.Add(new Cours()
                 {

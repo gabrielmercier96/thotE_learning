@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Database1" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Database1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.connections" Member="connections">
+    <Type Name="connection">
+      <Column Name="Idetudiant" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="etudiant_connection" Member="etudiant" ThisKey="Idetudiant" OtherKey="Id" Type="etudiant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.etudiant" Member="etudiants">
+    <Type Name="etudiant">
+      <Column Name="Id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="education" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="etudiant_connection" Member="connection" ThisKey="Id" OtherKey="Idetudiant" Type="connection" Cardinality="One" />
+    </Type>
+  </Table>
+</Database>

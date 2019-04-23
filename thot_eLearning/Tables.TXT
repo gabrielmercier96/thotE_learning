@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[connections] (
+    [Idetudiant] VARCHAR (50) NOT NULL,
+    [user]       VARCHAR (50) NULL,
+    [password]   VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Idetudiant] ASC),
+    CONSTRAINT [fk_idetudiant] FOREIGN KEY ([Idetudiant]) REFERENCES [dbo].[etudiant] ([Id])
+);
+
+
+CREATE TABLE [dbo].[etudiant] (
+    [Id]        VARCHAR (50) NOT NULL,
+    [nom]       VARCHAR (50) NULL,
+    [prenom]    VARCHAR (50) NULL,
+    [email]     VARCHAR (50) NULL,
+    [education] VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[Cours] (
+    [IdCours]     INT           IDENTITY (1000, 1) NOT NULL,
+    [Nom]         VARCHAR (50)  NULL,
+    [Description] VARCHAR (200) NULL,
+    [Prerequis]   VARCHAR (50)  NULL,
+    [NbModules]   VARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([IdCours] ASC)
+);
+

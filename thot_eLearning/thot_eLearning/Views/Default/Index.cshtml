@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+   
+@if (ViewBag.email!= null)
+{
+    <script>
+        alert("@ViewBag.email");
+    </script>
+}
+@if (ViewBag.login!= null) {
+    <script>alert("@ViewBag.login");</script>
+}
+    
+<form method="post" action="/Default/Index">
+    <div>
+        <label>Utilisateur :</label><input name="user" type="text" /><br />
+        <label>Password :</label><input name="pass" type="password" /><br />
+        <input type="submit" value="Login" /><br />
+        @Html.ActionLink("Pas encore inscrit", "inscription", "Default")
+    </div>
+</form>
+</body>
+</html>

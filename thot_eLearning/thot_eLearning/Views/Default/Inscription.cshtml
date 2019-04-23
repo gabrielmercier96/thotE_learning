@@ -1,0 +1,35 @@
+﻿@model thot_eLearning.Models.Etudiant
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inscription</title>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/JavaScript.js"></script>
+</head>
+<body>
+    <form method="post" id="send" name="send" action="/Default/Inscription">
+        <div>
+            <label>Prenom</label><input name="Prenom" id="prenom" type="text" /><br />
+            <label>Nom</label><input name="Nom" id="nom" type="text" /><br />
+            <label>Email</label><input name="Email" id="email" type="text" /><br />
+            <label>Education</label><select name="Education" id="education">
+                @foreach (string element in Model.ListEducation)
+                {
+                    <option value="@element">@element</option>
+                }
+            </select><br />
+            <input type="button" id="env" value="s'incrire" /><br />
+            @Html.ActionLink("Déjà inscrit", "Index", "Default")
+        </div>
+    </form>
+</body>
+</html>
+
+
+

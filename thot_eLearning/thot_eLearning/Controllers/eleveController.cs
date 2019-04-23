@@ -34,6 +34,7 @@ namespace thot_eLearning.Controllers
                     NbModules = data.NbModules
                 });
             }
+            //test//
             return View(uneListe);
         }
     }

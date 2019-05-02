@@ -22,7 +22,7 @@ namespace thot_eLearning
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Database1")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DataBaseSchool")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,16 +30,16 @@ namespace thot_eLearning
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Insertconnection(connection instance);
-    partial void Updateconnection(connection instance);
-    partial void Deleteconnection(connection instance);
     partial void Insertetudiant(etudiant instance);
     partial void Updateetudiant(etudiant instance);
     partial void Deleteetudiant(etudiant instance);
+    partial void Insertconnection(connection instance);
+    partial void Updateconnection(connection instance);
+    partial void Deleteconnection(connection instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Database1ConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DataBaseSchoolConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -68,14 +68,6 @@ namespace thot_eLearning
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<connection> connections
-		{
-			get
-			{
-				return this.GetTable<connection>();
-			}
-		}
-		
 		public System.Data.Linq.Table<etudiant> etudiants
 		{
 			get
@@ -83,155 +75,12 @@ namespace thot_eLearning
 				return this.GetTable<etudiant>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.connections")]
-	public partial class connection : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Idetudiant;
-		
-		private string _user;
-		
-		private string _password;
-		
-		private EntityRef<etudiant> _etudiant;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdetudiantChanging(string value);
-    partial void OnIdetudiantChanged();
-    partial void OnuserChanging(string value);
-    partial void OnuserChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    #endregion
-		
-		public connection()
-		{
-			this._etudiant = default(EntityRef<etudiant>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idetudiant", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Idetudiant
+		public System.Data.Linq.Table<connection> connections
 		{
 			get
 			{
-				return this._Idetudiant;
-			}
-			set
-			{
-				if ((this._Idetudiant != value))
-				{
-					if (this._etudiant.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdetudiantChanging(value);
-					this.SendPropertyChanging();
-					this._Idetudiant = value;
-					this.SendPropertyChanged("Idetudiant");
-					this.OnIdetudiantChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[user]", Storage="_user", DbType="VarChar(50)")]
-		public string user
-		{
-			get
-			{
-				return this._user;
-			}
-			set
-			{
-				if ((this._user != value))
-				{
-					this.OnuserChanging(value);
-					this.SendPropertyChanging();
-					this._user = value;
-					this.SendPropertyChanged("user");
-					this.OnuserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50)")]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="etudiant_connection", Storage="_etudiant", ThisKey="Idetudiant", OtherKey="Id", IsForeignKey=true)]
-		public etudiant etudiant
-		{
-			get
-			{
-				return this._etudiant.Entity;
-			}
-			set
-			{
-				etudiant previousValue = this._etudiant.Entity;
-				if (((previousValue != value) 
-							|| (this._etudiant.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._etudiant.Entity = null;
-						previousValue.connection = null;
-					}
-					this._etudiant.Entity = value;
-					if ((value != null))
-					{
-						value.connection = this;
-						this._Idetudiant = value.Id;
-					}
-					else
-					{
-						this._Idetudiant = default(string);
-					}
-					this.SendPropertyChanged("etudiant");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<connection>();
 			}
 		}
 	}
@@ -401,6 +250,157 @@ namespace thot_eLearning
 						value.etudiant = this;
 					}
 					this.SendPropertyChanged("connection");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.connections")]
+	public partial class connection : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Idetudiant;
+		
+		private string _user;
+		
+		private string _password;
+		
+		private EntityRef<etudiant> _etudiant;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdetudiantChanging(string value);
+    partial void OnIdetudiantChanged();
+    partial void OnuserChanging(string value);
+    partial void OnuserChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    #endregion
+		
+		public connection()
+		{
+			this._etudiant = default(EntityRef<etudiant>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idetudiant", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Idetudiant
+		{
+			get
+			{
+				return this._Idetudiant;
+			}
+			set
+			{
+				if ((this._Idetudiant != value))
+				{
+					if (this._etudiant.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdetudiantChanging(value);
+					this.SendPropertyChanging();
+					this._Idetudiant = value;
+					this.SendPropertyChanged("Idetudiant");
+					this.OnIdetudiantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[user]", Storage="_user", DbType="VarChar(50)")]
+		public string user
+		{
+			get
+			{
+				return this._user;
+			}
+			set
+			{
+				if ((this._user != value))
+				{
+					this.OnuserChanging(value);
+					this.SendPropertyChanging();
+					this._user = value;
+					this.SendPropertyChanged("user");
+					this.OnuserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50)")]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="etudiant_connection", Storage="_etudiant", ThisKey="Idetudiant", OtherKey="Id", IsForeignKey=true)]
+		public etudiant etudiant
+		{
+			get
+			{
+				return this._etudiant.Entity;
+			}
+			set
+			{
+				etudiant previousValue = this._etudiant.Entity;
+				if (((previousValue != value) 
+							|| (this._etudiant.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._etudiant.Entity = null;
+						previousValue.connection = null;
+					}
+					this._etudiant.Entity = value;
+					if ((value != null))
+					{
+						value.connection = this;
+						this._Idetudiant = value.Id;
+					}
+					else
+					{
+						this._Idetudiant = default(string);
+					}
+					this.SendPropertyChanged("etudiant");
 				}
 			}
 		}

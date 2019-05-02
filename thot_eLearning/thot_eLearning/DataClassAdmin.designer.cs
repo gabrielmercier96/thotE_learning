@@ -90,6 +90,8 @@ namespace thot_eLearning
 		
 		private string _NbModules;
 		
+		private string _Content;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -104,6 +106,8 @@ namespace thot_eLearning
     partial void OnPrerequisChanged();
     partial void OnNbModulesChanging(string value);
     partial void OnNbModulesChanged();
+    partial void OnContentChanging(string value);
+    partial void OnContentChanged();
     #endregion
 		
 		public Cour()
@@ -207,6 +211,26 @@ namespace thot_eLearning
 					this._NbModules = value;
 					this.SendPropertyChanged("NbModules");
 					this.OnNbModulesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this.OnContentChanging(value);
+					this.SendPropertyChanging();
+					this._Content = value;
+					this.SendPropertyChanged("Content");
+					this.OnContentChanged();
 				}
 			}
 		}

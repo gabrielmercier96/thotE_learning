@@ -147,10 +147,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database1.mdf" />
-    <Content Include="App_Data\Database1_log.ldf">
-      <DependentUpon>Database1.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\DataBaseSchool.mdf" />
     <Content Include="App_Data\DataBaseSchool_log.ldf">
       <DependentUpon>DataBaseSchool.mdf</DependentUpon>
@@ -164,6 +160,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="JavaScript.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="DataClassAdmin.dbml">
@@ -210,6 +207,7 @@
     <Content Include="Views\Home\Update.cshtml" />
     <Content Include="Views\Default\Inscription.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Home\CoursStudent.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

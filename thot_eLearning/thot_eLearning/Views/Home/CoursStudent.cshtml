@@ -1,0 +1,51 @@
+﻿@model IEnumerable<thot_eLearning.Models.Cours>
+
+@{
+    ViewBag.Title = "CoursStudent";
+}
+
+<h2>CoursStudent</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prerequis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbModules)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Prerequis)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NbModules)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Content)
+    </td>
+
+</tr>
+}
+
+</table>

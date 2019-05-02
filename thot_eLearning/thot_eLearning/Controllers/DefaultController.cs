@@ -13,6 +13,7 @@ namespace thot_eLearning.Controllers
     {
         // GET: Default
         private DataClassAdminDataContext context;
+        private DataClasses1DataContext contextStudent;
         public ActionResult Index()
         {
             return View();
@@ -22,10 +23,13 @@ namespace thot_eLearning.Controllers
         {
 
             context = new DataClassAdminDataContext();
+            contextStudent = new DataClasses1DataContext();
             IList<Cours> uneListe = new List<Cours>();
 
+            var etudiantQuery = (from x in contextStudent.etudiants where x.Id == user select x.education).Single();
             var query = from c in context.Cours
-                select c;
+                        where c.Prerequis == etudiantQuery
+                        select c;
             var querryRez = query.ToList();
             foreach (var data in querryRez)
             {
@@ -34,7 +38,8 @@ namespace thot_eLearning.Controllers
                     Nom = data.Nom,
                     Description = data.Description,
                     Prerequis = data.Prerequis,
-                    NbModules = data.NbModules
+                    NbModules = data.NbModules,
+                    Content = data.Content
                 });
             }
             using (DataClasses1DataContext db = new DataClasses1DataContext())
@@ -46,7 +51,7 @@ namespace thot_eLearning.Controllers
                         var res = (from m in db.connections where m.user == user && m.password == pass select m).Count();
                         if (res == 1)
                         {
-                            return View("~/Views/Home/Admin.cshtml",uneListe);//"nom de la view");
+                            return View("~/Views/Home/CoursStudent.cshtml",uneListe);//"nom de la view");
                             
                         }
                         else

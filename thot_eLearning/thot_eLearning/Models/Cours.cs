@@ -12,5 +12,8 @@ namespace thot_eLearning.Models
         public string Description { get; set; }
         public string Prerequis { get; set; }
         public string NbModules { get; set; }
+        public int IdCours { get; set; }
+        public string Content { get; set; }
     }
+   
 }
